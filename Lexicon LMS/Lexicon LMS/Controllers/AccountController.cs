@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Lexicon_LMS.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Lexicon_LMS.Controllers
 {
@@ -17,6 +18,9 @@ namespace Lexicon_LMS.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+
+        private ApplicationDbContext db = new ApplicationDbContext();
+       
 
         public AccountController()
         {
@@ -139,7 +143,22 @@ namespace Lexicon_LMS.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+
+
+            RegisterViewModel model = new RegisterViewModel();
+            model.Courses = db.Courses.ToList();
+            //ViewBag.CourseId = new SelectList(db.Courses,"Id", "Name");
+            model.Roles = db.Roles.ToList();
+            //foreach (var Course in model.Courses)
+            //{
+            //    int.TryParse(Course.Id,out model.CourseId);
+            //}
+            //foreach (var Role in model.Roles)
+            //{
+            //    Role.Id = model.RoleId;
+            //}
+            return View(model);
+
         }
 
         //
@@ -151,24 +170,28 @@ namespace Lexicon_LMS.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                var result= await UserManager.CreateAsync( user , model.Password);
 
-                    return RedirectToAction("Index", "Home");
-                }
+                //if (result.Succeeded)
+                //{
+                //    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                //    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                //    // Send an email with this link
+                //    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                //    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                //    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                //    return RedirectToAction("Index", "Home");
+                //}
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
+            model.Courses = db.Courses.ToList();
+            model.Roles = db.Roles.ToList();
             return View(model);
         }
 

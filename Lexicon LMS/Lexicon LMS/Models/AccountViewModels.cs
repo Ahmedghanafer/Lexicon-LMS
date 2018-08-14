@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using System.Linq;
 namespace Lexicon_LMS.Models
 {
     public class ExternalLoginConfirmationViewModel
@@ -68,7 +69,7 @@ namespace Lexicon_LMS.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
+        private ApplicationDbContext db = new ApplicationDbContext();
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -80,8 +81,18 @@ namespace Lexicon_LMS.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public int Role_Id { get; set; }
-        public int Course_Id { get; set; }
+        /// <summary>
+        /// ///////////////
+        /// </summary>
+        //private readonly List<Course> courses;
+
+       public List<Course> Courses { get; set; }
+        
+        public int CourseId { get; set; }
+
+        public string RoleId { get; set; }
+
+        public List<IdentityRole> Roles { get; set; }
     }
 
     public class ResetPasswordViewModel

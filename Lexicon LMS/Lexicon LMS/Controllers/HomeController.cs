@@ -8,6 +8,7 @@ namespace Lexicon_LMS.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -26,5 +27,8 @@ namespace Lexicon_LMS.Controllers
 
             return View();
         }
+
+       
+
     }
 }

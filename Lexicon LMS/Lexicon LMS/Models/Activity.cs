@@ -14,7 +14,7 @@ namespace Lexicon_LMS.Models
         public DateTime EndDate { get; set; }
         public string Description { get; set; }
 
-
-        public int Module_Id { get; set; }
+        public Module Module { get; set; }  
+        public int ModuleId { get; set; }
     }
 }

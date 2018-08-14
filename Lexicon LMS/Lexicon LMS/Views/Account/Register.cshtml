@@ -1,9 +1,13 @@
 ﻿@model Lexicon_LMS.Models.RegisterViewModel
+
+
 @{
     ViewBag.Title = "Register";
+
 }
 
 <h2>@ViewBag.Title.</h2>
+
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
@@ -27,6 +31,36 @@
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(m => m.Course)*@
+        <div class="col-md-10">
+
+
+            @Html.DropDownListFor(m => Model.CourseId, new SelectList(Model.Courses, "Id", "Name"), htmlAttributes: new { @class = "form -control" })
+
+
+            @Html.ValidationMessageFor(Model => Model.CourseId, "", new { @class = "text-danger" })
+
+
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.Roles, "RoleId", htmlAttributes: new { @class = "control-label col-md-2" })
+        @*@Html.LabelFor(m => m.Course)*@
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => Model.RoleId, new SelectList(Model.Roles, "Id", "Name"), htmlAttributes: new { @class = "form -control" })
+
+
+            @Html.ValidationMessageFor(Model => Model.Roles, "", new { @class = "text-danger" })
+
+
+
         </div>
     </div>
     <div class="form-group">
