@@ -171,9 +171,18 @@ namespace Lexicon_LMS.Controllers
             if (ModelState.IsValid)
             {
                
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email ,CourseId=model.CourseId,};
+
                 var result= await UserManager.CreateAsync( user , model.Password);
 
+                if (result.Succeeded)
+                {
+                    UserManager.AddToRole(user.Id, model.RoleId);
+
+                     return RedirectToAction("Register");
+
+                }
+               
                 //if (result.Succeeded)
                 //{
                 //    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
@@ -186,6 +195,7 @@ namespace Lexicon_LMS.Controllers
 
                 //    return RedirectToAction("Index", "Home");
                 //}
+
                 AddErrors(result);
             }
 

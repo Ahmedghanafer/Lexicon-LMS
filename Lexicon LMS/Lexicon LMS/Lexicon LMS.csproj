@@ -202,6 +202,18 @@
     <Compile Include="Migrations\201808141348375_qwert.Designer.cs">
       <DependentUpon>201808141348375_qwert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808151157093_asdfzvxc.cs" />
+    <Compile Include="Migrations\201808151157093_asdfzvxc.Designer.cs">
+      <DependentUpon>201808151157093_asdfzvxc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151223030_mnzv.cs" />
+    <Compile Include="Migrations\201808151223030_mnzv.Designer.cs">
+      <DependentUpon>201808151223030_mnzv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808151242370_ghkjajfv.cs" />
+    <Compile Include="Migrations\201808151242370_ghkjajfv.Designer.cs">
+      <DependentUpon>201808151242370_ghkjajfv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -306,6 +318,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201808141348375_qwert.resx">
       <DependentUpon>201808141348375_qwert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151157093_asdfzvxc.resx">
+      <DependentUpon>201808151157093_asdfzvxc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151223030_mnzv.resx">
+      <DependentUpon>201808151223030_mnzv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808151242370_ghkjajfv.resx">
+      <DependentUpon>201808151242370_ghkjajfv.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

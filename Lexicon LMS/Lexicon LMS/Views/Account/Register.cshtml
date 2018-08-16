@@ -33,16 +33,19 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
+
+
+
     <div class="form-group">
-        @Html.LabelFor(Model => Model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(Model => Model.RoleId, "RoleId", htmlAttributes: new { @class = "control-label col-md-2" })
         @*@Html.LabelFor(m => m.Course)*@
         <div class="col-md-10">
 
 
-            @Html.DropDownListFor(m => Model.CourseId, new SelectList(Model.Courses, "Id", "Name"), htmlAttributes: new { @class = "form -control" })
+            @Html.DropDownListFor(m => Model.RoleId, new SelectList(Model.Roles, "Name", "Name"), htmlAttributes: new { @class = "form -control" })
 
 
-            @Html.ValidationMessageFor(Model => Model.CourseId, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(Model => Model.RoleId, "", new { @class = "text-danger" })
 
 
 
@@ -51,25 +54,46 @@
 
 
     <div class="form-group">
-        @Html.LabelFor(Model => Model.Roles, "RoleId", htmlAttributes: new { @class = "control-label col-md-2" })
-        @*@Html.LabelFor(m => m.Course)*@
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => Model.RoleId, new SelectList(Model.Roles, "Id", "Name"), htmlAttributes: new { @class = "form -control" })
+        <div id="course">
+            @Html.LabelFor(Model => Model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(m => m.Course)*@
+            <div class="col-md-10">
 
 
-            @Html.ValidationMessageFor(Model => Model.Roles, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(m => Model.CourseId, new SelectList(Model.Courses, "Id", "Name"), htmlAttributes: new { @class = "form -control" })
 
+
+                @Html.ValidationMessageFor(Model => Model.CourseId, "", new { @class = "text-danger" })
+            </div>
 
 
         </div>
     </div>
+
     <div class="form-group">
+
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
+
 }
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#RoleId").change(function () {
+            if ($(this).val() != "Teacher") {
+                $("#course").show();
+            } else {
+                $("#course").hide();
+            }
+        });
+    });
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }

@@ -81,15 +81,13 @@ namespace Lexicon_LMS.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        /// <summary>
-        /// ///////////////
-        /// </summary>
+
+
         //private readonly List<Course> courses;
 
        public List<Course> Courses { get; set; }
         
         public int CourseId { get; set; }
-
         public string RoleId { get; set; }
 
         public List<IdentityRole> Roles { get; set; }
