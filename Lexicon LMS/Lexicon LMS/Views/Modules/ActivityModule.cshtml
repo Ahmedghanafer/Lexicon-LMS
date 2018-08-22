@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<Lexicon_LMS.Models.Activity>
 
+
+@if (User.IsInRole("Teacher"))
+{
 <p>
-    @Html.ActionLink("Create New", "Create","Activities")
-</p>
+    @Html.ActionLink("Create New", "Create", "Activities")
+
+</p> }
+
+      <h2>Activities</h2>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Module.ModuleName)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.Type)
         </th>
@@ -26,32 +31,49 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Module.ModuleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActivityName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+
+                <button type="button" class="btn btn-outline-primary  btn-sm">
+
+                    @Html.ActionLink("Details", "Details", "Activities", new { id = item.Id }, null) 
+
+                </button>
+
+                @if (User.IsInRole("Teacher"))
+
+
+    {
+            <button type="button" class="btn btn-outline-primary  btn-sm">
+                @Html.ActionLink("Edit", "Edit", "Activities", new { id = item.Id }, null)
+            </button>
+
+            <button type="button" class="btn btn-outline-primary  btn-sm">
+                @Html.ActionLink("Delete", "Delete", "Activities", new { id = item.Id }, null)
+                </button>
+                }
+
+
+            </td>
+        </tr>
+    }
 
 </table>

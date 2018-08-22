@@ -11,13 +11,7 @@
     <h4>Module</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Course.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Course.Name)
-        </dd>
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.ModuleName)
@@ -56,9 +50,12 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+
+        <button type="button" class="btn btn-outline-primary  btn-sm">
+            @Html.ActionLink("Back to List", null, null, null, new { href = Request.UrlReferrer })
+            </button>
+    </div>
     }
 </div>

@@ -140,7 +140,7 @@ namespace Lexicon_LMS.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles ="Teacher")]
         public ActionResult Register()
         {
 
@@ -341,7 +341,7 @@ namespace Lexicon_LMS.Controllers
             {
                 return View();
             }
-
+            
             // Generate the token and send it
             if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
             {

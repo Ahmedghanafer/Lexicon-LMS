@@ -27,8 +27,31 @@ namespace Lexicon_LMS.Controllers
 
             return View();
         }
+        public ActionResult Default()
+        {
 
-       
+
+            ViewBag.Title = "Default";
+            return View("Index");
+
+        }
+        [Authorize(Roles = "Teacher")]
+
+        public ActionResult Admin()
+        {
+            ViewBag.Title = "Teacher";
+            return View("Index");
+        }
+
+
+        [Authorize(Roles = "Student")]
+
+        public ActionResult Editor()
+        {
+            ViewBag.Title = "Student";
+            return View("Index");
+        }
+
 
     }
 }

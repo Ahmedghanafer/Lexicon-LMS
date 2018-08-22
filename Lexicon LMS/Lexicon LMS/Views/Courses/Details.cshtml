@@ -44,7 +44,26 @@
 
     </dl>
 </div>
+          @if (User.IsInRole("Teacher"))
+            {
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <button type="button" class="btn btn-outline-primary  btn-sm">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </button>
+
+
+    <button type="button" class="btn btn-outline-primary  btn-sm">
+        @Html.ActionLink("Back to List", "Index")
+        </button>
+        </p>
+
+            }
+                @if (User.IsInRole("Student"))
+               {
+               <p>
+
+                   <button type="button" class="btn btn-outline-primary  btn-sm">
+                       @Html.ActionLink("Back to List", "Index")
+                       </button>
+                  </p>
+                }

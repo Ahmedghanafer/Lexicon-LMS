@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Lexicon_LMS.Models.CourseStudents>
+
+     <h2>Student</h2>
+       <table class="table">
+        <tr>
+           <th>
+            @Html.DisplayNameFor(model => model.Email)
+          </th>
+          <th></th>
+       </tr>
+
+         @foreach (var item in Model) {
+            <tr>
+            <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+    </tr>
+        }
+
+</table>

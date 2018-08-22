@@ -21,14 +21,28 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("courses", "Index", "Courses")</li>
+                    @if (User.IsInRole("Teacher"))
+                     {
+
+                        <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                     }
+
+                    @if (User.IsInRole("Student"))
+                     {
+
+                       <li>@Html.ActionLink("My Course", "Index", "Courses")</li>
+                     }
+
                     <li>@Html.ActionLink("About", "About", "Home")</li>
+
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />

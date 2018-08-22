@@ -55,10 +55,13 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
 
-@section Scripts {
+        <button type="button" class="btn btn-outline-primary  btn-sm"> 
+            @Html.ActionLink("Back to List", "Index")
+            </button>
+    </div>
+
+        @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

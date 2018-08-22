@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -12,7 +13,7 @@ namespace Lexicon_LMS.Models
 
         //add course in register.
         public Course Course { get; set; }
-
+        [Display(Name = "Course")]
         public int? CourseId { get; set; }
         //
 

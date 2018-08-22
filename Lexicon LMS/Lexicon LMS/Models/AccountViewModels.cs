@@ -86,8 +86,9 @@ namespace Lexicon_LMS.Models
         //private readonly List<Course> courses;
 
        public List<Course> Courses { get; set; }
-        
+        [Display(Name = "Course")]
         public int CourseId { get; set; }
+        [Display(Name = "Role")]
         public string RoleId { get; set; }
 
         public List<IdentityRole> Roles { get; set; }
