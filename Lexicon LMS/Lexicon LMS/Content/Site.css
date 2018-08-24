@@ -21,4 +21,13 @@ input,
 select,
 textarea {
     max-width: 280px;
+
+
+}
+
+
+.background-img {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }

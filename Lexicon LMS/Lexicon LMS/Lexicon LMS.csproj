@@ -198,21 +198,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808141348375_qwert.cs" />
-    <Compile Include="Migrations\201808141348375_qwert.Designer.cs">
-      <DependentUpon>201808141348375_qwert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808151157093_asdfzvxc.cs" />
-    <Compile Include="Migrations\201808151157093_asdfzvxc.Designer.cs">
-      <DependentUpon>201808151157093_asdfzvxc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808151223030_mnzv.cs" />
-    <Compile Include="Migrations\201808151223030_mnzv.Designer.cs">
-      <DependentUpon>201808151223030_mnzv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808151242370_ghkjajfv.cs" />
-    <Compile Include="Migrations\201808151242370_ghkjajfv.Designer.cs">
-      <DependentUpon>201808151242370_ghkjajfv.cs</DependentUpon>
+    <Compile Include="Migrations\201808240830456_ss.cs" />
+    <Compile Include="Migrations\201808240830456_ss.Designer.cs">
+      <DependentUpon>201808240830456_ss.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -226,8 +214,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\52243806.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\students.jpg" />
+    <Content Include="Content\boot1strap.css" />
+    <Content Include="Content\university-students.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -318,17 +310,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808141348375_qwert.resx">
-      <DependentUpon>201808141348375_qwert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808151157093_asdfzvxc.resx">
-      <DependentUpon>201808151157093_asdfzvxc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808151223030_mnzv.resx">
-      <DependentUpon>201808151223030_mnzv.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808151242370_ghkjajfv.resx">
-      <DependentUpon>201808151242370_ghkjajfv.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808240830456_ss.resx">
+      <DependentUpon>201808240830456_ss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
