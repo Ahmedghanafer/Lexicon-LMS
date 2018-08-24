@@ -23,7 +23,15 @@ namespace Lexicon_LMS.Migrations
             var userManager = new ApplicationUserManager(userStore);
             var emails = new[] { "john@lexicon.se", "user@lexicon.se", "admin@lexicon.se", "editor@lexicon.se" };
 
-            foreach (var email in emails)
+         
+
+            var roleStore = new RoleStore<IdentityRole>(context);
+
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            var roleNames = new[] { "Student", "Teacher" };
+            context.SaveChanges();
+   foreach (var email in emails)
             {
 
 
@@ -40,13 +48,6 @@ namespace Lexicon_LMS.Migrations
 
                 }
             }
-
-            var roleStore = new RoleStore<IdentityRole>(context);
-
-            var roleManager = new RoleManager<IdentityRole>(roleStore);
-
-            var roleNames = new[] { "Student", "Teacher" };
-
             foreach (var roleName in roleNames)
             {
 
